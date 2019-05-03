@@ -9,8 +9,8 @@ public class World {
 
     private int step = 0;
     private final boolean[][] world;
-    private Printer printer;
-    private RandomGenerator random;
+    private final Printer printer;
+    private final RandomGenerator random;
 
     World(boolean[][] world) {
         this.world = world;
@@ -47,9 +47,7 @@ public class World {
 
     private void updateWorld(final boolean[][] newWorld) {
         for (int x = 0; x < newWorld.length; x++) {
-            for (int y = 0; y < newWorld[x].length; y++) {
-                world[x][y] = newWorld[x][y];
-            }
+            System.arraycopy(newWorld[x], 0, world[x], 0, newWorld[x].length);
         }
         step++;
     }

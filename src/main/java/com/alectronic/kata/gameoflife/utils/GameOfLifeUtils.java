@@ -5,12 +5,6 @@ import com.alectronic.kata.gameoflife.exception.MalformedLine;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class GameOfLifeUtils {
 
@@ -46,9 +40,7 @@ public class GameOfLifeUtils {
     public static boolean[][] deepCopy(boolean[][] cells) {
         boolean[][] newWorld = new boolean[cells.length][cells[0].length] ;
         for (int x = 0; x < cells.length; x++) {
-            for (int y = 0; y < cells[x].length; y++) {
-                newWorld[x][y] = cells[x][y];
-            }
+            System.arraycopy(cells[x], 0, newWorld[x], 0, cells[x].length);
         }
         return newWorld;
     }

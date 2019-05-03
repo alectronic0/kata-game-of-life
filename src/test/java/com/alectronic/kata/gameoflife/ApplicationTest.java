@@ -11,7 +11,7 @@ public class ApplicationTest {
 
     @Test(expected = DeadWorldException.class)
     public void breakOutAfterItStagnates1() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
-        Application.main(getResouceFilePath("goodTest.txt"));
+        Application.main(getResourceFilePath("goodTest.txt"));
     }
 
     @Test(expected = IOException.class)
@@ -22,15 +22,15 @@ public class ApplicationTest {
 //    TODO: make this get check at file time.
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void failsDueToBadFormat() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
-        Application.main(getResouceFilePath("badFormatTest.txt"));
+        Application.main(getResourceFilePath("badFormatTest.txt"));
     }
 
     @Test(expected = MalformedLine.class)
     public void failsDueToMalformedFile() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
-        Application.main(getResouceFilePath("malformedTest.txt"));
+        Application.main(getResourceFilePath("malformedTest.txt"));
     }
 
-    private String getResouceFilePath(String fileName) {
+    private String getResourceFilePath(String fileName) {
         return Objects.requireNonNull(this.getClass().getClassLoader().getResource(fileName)).getFile();
     }
 
