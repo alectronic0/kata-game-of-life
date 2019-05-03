@@ -12,7 +12,7 @@ public class WorldTest {
     public void initBaseWorld() {
         World world = new World(new boolean[1][1]);
 
-        String expectedWorld = " . \n";
+        String expectedWorld = "Step: 0\n" + " . \n";
         String currentWorld = world.toString();
 
         assertEquals(expectedWorld,currentWorld);
@@ -22,7 +22,7 @@ public class WorldTest {
     public void initBaseWorld2() {
         World world = new World(new boolean[2][2]);
 
-        String expectedWorld = " .  . \n" + " .  . \n";
+        String expectedWorld = "Step: 0\n" + " .  . \n" + " .  . \n";
         String currentWorld = world.toString();
 
         assertEquals(expectedWorld,currentWorld);
@@ -37,7 +37,7 @@ public class WorldTest {
 
         World world = new World(cells);
 
-        String expectedWorld = " *  . \n" + " .  . \n";
+        String expectedWorld = "Step: 0\n" + " *  . \n" + " .  . \n";
         String currentWorld = world.toString();
 
         assertEquals(expectedWorld,currentWorld);
@@ -53,7 +53,7 @@ public class WorldTest {
 
         World world = new World(cells);
 
-        String expectedWorld = " *  .  . \n"  + " *  .  . \n" + " *  .  . \n";
+        String expectedWorld = "Step: 0\n" + " *  .  . \n"  + " *  .  . \n" + " *  .  . \n";
         String currentWorld = world.toString();
 
         assertEquals(expectedWorld,currentWorld);
@@ -69,7 +69,7 @@ public class WorldTest {
 
         World world = new World(cells);
 
-        String expectedWorld = " *  *  * \n" + " .  .  . \n" + " .  .  . \n";
+        String expectedWorld = "Step: 0\n" + " *  *  * \n" + " .  .  . \n" + " .  .  . \n";
         String currentWorld = world.toString();
 
         assertEquals(expectedWorld,currentWorld);
@@ -85,7 +85,7 @@ public class WorldTest {
 
         World world = new World(cells);
 
-        String expectedWorld = " .  .  . \n" + " .  *  . \n" +  " .  .  . \n";
+        String expectedWorld = "Step: 0\n" + " .  .  . \n" + " .  *  . \n" +  " .  .  . \n";
         String currentWorld = world.toString();
 
         assertEquals(expectedWorld,currentWorld);

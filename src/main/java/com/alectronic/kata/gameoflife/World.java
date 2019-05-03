@@ -91,7 +91,6 @@ public class World {
     }
 
     public void print() {
-        System.out.println("Step: " + step);
         System.out.println(this.toString());
     }
 
@@ -105,9 +104,8 @@ public class World {
         }
         return s.toString();
     }
-
     public String toString() {
-        return toString(cells);
+        return "Step: " + step + "\n" + toString(cells);
     }
 
 }
