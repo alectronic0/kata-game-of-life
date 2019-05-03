@@ -20,7 +20,7 @@ public class WorldIntergationTest {
         world.print();
         world.step();
         world.print();
-        boolean[][] currentWorld = world.getCells();
+        boolean[][] currentWorld = world.getState();
 
         boolean[][] expectedWorld = new boolean[][]{
                 {false, false, false},
@@ -42,7 +42,7 @@ public class WorldIntergationTest {
         world.print();
         world.step();
         world.print();
-        boolean[][] currentWorld = world.getCells();
+        boolean[][] currentWorld = world.getState();
 
         boolean[][] expectedWorld = new boolean[][]{
                 {false, false, false},
@@ -64,7 +64,7 @@ public class WorldIntergationTest {
         world.print();
         world.step();
         world.print();
-        boolean[][] currentWorld = world.getCells();
+        boolean[][] currentWorld = world.getState();
 
         boolean[][] expectedWorld = new boolean[][]{
                 {true, true, false},
@@ -87,7 +87,7 @@ public class WorldIntergationTest {
         world.print();
         world.step();
         world.print();
-        boolean[][] currentWorld = world.getCells();
+        boolean[][] currentWorld = world.getState();
 
         boolean[][] expectedWorld = new boolean[][]{
                 {false, true, false},
@@ -110,7 +110,7 @@ public class WorldIntergationTest {
         world.print();
         world.step();
         world.print();
-        boolean[][] currentWorld = world.getCells();
+        boolean[][] currentWorld = world.getState();
 
         boolean[][] expectedWorld = new boolean[][]{
                 {false, false, false},
@@ -134,7 +134,7 @@ public class WorldIntergationTest {
         world.print();
         world.step();
         world.print();
-        boolean[][] currentWorld = world.getCells();
+        boolean[][] currentWorld = world.getState();
 
         boolean[][] expectedWorld = new boolean[][]{
                 {true, false, true},
@@ -157,7 +157,7 @@ public class WorldIntergationTest {
         world.print();
         world.step();
         world.print();
-        boolean[][] currentWorld = world.getCells();
+        boolean[][] currentWorld = world.getState();
 
         boolean[][] expectedWorld = new boolean[][]{
                 {true, false, true},
