@@ -15,9 +15,9 @@ class Application {
 
     public static void main(String... args) throws InterruptedException, DeadWorldException, IOException, MalformedLine {
         World app;
-        if (0 >= args.length) {
-            app = new World(10,30);
-        } else {
+        if (args.length <= 0) {
+            app = new World(40,88);
+        } else if(args.length <= 1) {
             try {
                 app = new World(getStateFromFile(args[0]));
             } catch (IOException e) {
@@ -27,6 +27,10 @@ class Application {
                 LOGGER.severe("Your file was Malformed please check " + e.getMessage());
                 throw e;
             }
+        } else if(args.length <= 2) {
+            app = new World(Integer.parseInt(args[0]),Integer.parseInt(args[1]));
+        } else {
+            throw new RuntimeException("Length is " + args.length);
         }
 
         try {
