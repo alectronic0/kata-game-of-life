@@ -52,4 +52,6 @@ public class GameOfLifeUtils {
         return s.toString();
     }
 
+    public static boolean[][] convertStringToWorld(String)
+
 }
