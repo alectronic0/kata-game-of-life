@@ -1,9 +1,7 @@
 package com.alectronic.kata.gameoflife;
 
 import com.alectronic.kata.gameoflife.exception.DeadWorldException;
-import com.alectronic.kata.gameoflife.utils.GameOfLifeUtils;
-import com.alectronic.kata.gameoflife.utils.Printer;
-import com.alectronic.kata.gameoflife.utils.PrinterImpl;
+import com.alectronic.kata.gameoflife.utils.*;
 
 import java.util.Arrays;
 
@@ -12,10 +10,12 @@ public class World {
     private int step = 0;
     private final boolean[][] world;
     private Printer printer;
+    private RandomGenerator random;
 
     World(boolean[][] world) {
         this.world = world;
         this.printer = new PrinterImpl();
+        this.random = new RandomGeneratorImpl();
     }
 
     World() {
@@ -23,12 +23,13 @@ public class World {
     }
 
     World(int xLength, int yLength) {
-        this(xLength,yLength, new PrinterImpl());
+        this(xLength,yLength, new PrinterImpl(), new RandomGeneratorImpl());
     }
 
-    World(int xLength, int yLength, Printer printer) {
+    World(int xLength, int yLength, Printer printer, RandomGenerator random) {
         this.world = new boolean[xLength][yLength];
         this.printer = printer;
+        this.random = random;
         randomInit();
     }
 
@@ -39,7 +40,7 @@ public class World {
     private void randomInit() {
         for (int x = 0; x < world.length; x++) {
             for (int y = 0; y < world[x].length; y++) {
-                world[x][y] = Math.random() < 0.2;
+                world[x][y] = random.generateBoolean();
             }
         }
     }
