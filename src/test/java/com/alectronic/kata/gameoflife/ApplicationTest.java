@@ -11,12 +11,23 @@ public class ApplicationTest {
 
     @Test(expected = DeadWorldException.class)
     public void breakOutAfterItStagnates1() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
-        Application.main(getResouceFilePath("test1.txt"));
+        Application.main(getResouceFilePath("goodTest.txt"));
     }
 
     @Test(expected = IOException.class)
-    public void breakOutAfterItStagnates2() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
+    public void failToFindFile() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
         Application.main("test2.txt");
+    }
+
+//    TODO: make this get check at file time.
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void failsDueToBadFormat() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
+        Application.main(getResouceFilePath("badFormatTest.txt"));
+    }
+
+    @Test(expected = MalformedLine.class)
+    public void failsDueToMalformedFile() throws InterruptedException, DeadWorldException, IOException, MalformedLine {
+        Application.main(getResouceFilePath("malformedTest.txt"));
     }
 
     private String getResouceFilePath(String fileName) {

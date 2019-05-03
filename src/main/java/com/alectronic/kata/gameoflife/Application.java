@@ -21,7 +21,15 @@ public class Application {
         if (0 >= args.length) {
             app = new World(10,60);
         } else {
-            app = new World(getStateFromFile(args[0]));
+            try {
+                app = new World(getStateFromFile(args[0]));
+            } catch (IOException e) {
+                LOGGER.severe("Something went wrong reading the file please check " + e.getMessage());
+                throw e;
+            } catch (MalformedLine e) {
+                LOGGER.severe("Your file was Malformed please check " + e.getMessage());
+                throw e;
+            }
         }
 
         try {
