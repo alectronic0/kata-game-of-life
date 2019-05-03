@@ -3,16 +3,22 @@ package com.alectronic.kata.gameoflife;
 import com.alectronic.kata.gameoflife.exception.DeadWorldException;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class Application {
 
-    public static void main(String... args) throws InterruptedException, DeadWorldException {
-        World app = new World();
+    private final static Logger LOGGER = Logger.getLogger(Application.class.getName());
 
-        while (true) {
-            System.out.println(app.toString());
-            TimeUnit.MILLISECONDS.sleep(500);
-            app.step();
+    public static void main(String... args) throws InterruptedException {
+        try {
+            World app = new World();
+            while (true) {
+                System.out.println(app.toString());
+                TimeUnit.MILLISECONDS.sleep(100);
+                app.step();
+            }
+        } catch (DeadWorldException e) {
+            LOGGER.severe("The world has died");
         }
     }
 
