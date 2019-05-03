@@ -1,5 +1,17 @@
 package com.alectronic.kata.gameoflife.utils;
 
+import com.alectronic.kata.gameoflife.exception.MalformedLine;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class GameOfLifeUtils {
 
     public static int countNumberOfLiveNeighbour(final int x, final int y, final boolean[][] cells) {
@@ -52,6 +64,40 @@ public class GameOfLifeUtils {
         return s.toString();
     }
 
-    public static boolean[][] convertStringToWorld(String)
+
+    public String getResouceFilePath(String fileName) {
+        return Objects.requireNonNull(this.getClass().getClassLoader().getResource(fileName)).getFile();
+    }
+
+    public static boolean[][] getStateFromFile(String arg) throws IOException, MalformedLine {
+        return GameOfLifeUtils.convertStringToWorld(new String(Files.readAllBytes(Paths.get(arg))).split("\n"));
+    }
+
+    public static boolean[][] convertStringToWorld(String[] lines) throws MalformedLine {
+        return convertStringToWorld("*",".",lines);
+    }
+
+    public static boolean[][] convertStringToWorld(String alive, String dead, String[] lines) throws MalformedLine {
+        boolean[][] booleanList = new boolean[lines.length][];
+        for (int i = 0; i < lines.length; i++){
+            booleanList[i] = convertStringToWorld(alive,dead,lines[i]);
+        }
+        return booleanList;
+    }
+
+    public static boolean[] convertStringToWorld(String alive, String dead, String line) throws MalformedLine {
+        String[] x = line.split("");
+        boolean[] booleanList = new boolean[x.length];
+        for (int i = 0; i < x.length; i++){
+            if(x[i].equals(alive)) {
+                booleanList[i] = true;
+            } else if(x[i].equals(dead)) {
+                booleanList[i] = false;
+            } else {
+                throw new MalformedLine();
+            }
+        }
+        return booleanList;
+    }
 
 }
