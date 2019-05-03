@@ -2,8 +2,6 @@ package com.alectronic.kata.gameoflife.utils;
 
 public class GameOfLifeUtils {
 
-    GameOfLifeUtils() {}
-
     public static int countNumberOfLiveNeighbour(final int x, final int y, final boolean[][] cells) {
         int count = 0;
         for (int xOffSet = x-1; xOffSet <= x+1; xOffSet++) {

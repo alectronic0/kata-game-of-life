@@ -6,6 +6,12 @@ import static com.alectronic.kata.gameoflife.utils.GameOfLifeUtils.*;
 import static org.junit.Assert.*;
 
 public class GameOfLifeUtilsTest {
+
+    @Test
+    public void initUtil(){
+        new GameOfLifeUtils();
+    }
+
 //    Counting Neighbours Check
 //    * * .
 //    * * .
