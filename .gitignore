@@ -4,3 +4,11 @@
 \.idea/
 
 build/
+
+caches/
+
+daemon/
+
+native/
+
+notifications/

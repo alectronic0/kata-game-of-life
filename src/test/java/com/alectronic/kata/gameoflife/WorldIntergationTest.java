@@ -6,8 +6,8 @@ import static org.junit.Assert.*;
 
 public class WorldIntergationTest {
 
-    @Test
-    public void shouldRemainDead() {
+    @Test(expected = DeadWorldException.class)
+    public void shouldRemainDeadAndThrowDeadWorldException() throws DeadWorldException {
         boolean[][] cells = new boolean[][]{
                 {false, false, false},
                 {false, false, false},
@@ -29,7 +29,7 @@ public class WorldIntergationTest {
         assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);}
 
     @Test
-    public void shouldDieOfUnderPopulation() {
+    public void shouldDieOfUnderPopulation() throws DeadWorldException {
         boolean[][] cells = new boolean[][]{
                 {false, true, false},
                 {true, false, false},
@@ -51,7 +51,7 @@ public class WorldIntergationTest {
         assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);}
 
     @Test
-    public void shouldCreateLife() {
+    public void shouldCreateLife() throws DeadWorldException {
         boolean[][] cells = new boolean[][]{
                 {false, true, false},
                 {true, true, false},
@@ -74,7 +74,7 @@ public class WorldIntergationTest {
     }
 
     @Test
-    public void shouldCreateLifeButOnlyOneOtherLivesInProcess() {
+    public void shouldCreateLifeButOnlyOneOtherLivesInProcess() throws DeadWorldException {
         boolean[][] cells = new boolean[][]{
                 {false, true, false},
                 {true, false, true},
@@ -97,7 +97,7 @@ public class WorldIntergationTest {
     }
 
     @Test
-    public void shouldCreateLifeButDieInProcess() {
+    public void shouldCreateLifeButDieInProcess() throws DeadWorldException {
         boolean[][] cells = new boolean[][]{
                 {true, false, false},
                 {false, false, true},
@@ -121,7 +121,7 @@ public class WorldIntergationTest {
 
 
     @Test
-    public void test() {
+    public void test() throws DeadWorldException {
         boolean[][] cells = new boolean[][]{
                 {true, true, true},
                 {true, true, true},
@@ -144,7 +144,7 @@ public class WorldIntergationTest {
     }
 
     @Test
-    public void shouldKillOvercrowded() {
+    public void shouldKillOvercrowded() throws DeadWorldException {
         boolean[][] cells = new boolean[][]{
                 {true, true, true},
                 {true, true, true},

@@ -1,5 +1,7 @@
 package com.alectronic.kata.gameoflife;
 
+import java.util.Arrays;
+
 public class World {
 
     private int step = 0;
@@ -40,7 +42,7 @@ public class World {
         step++;
     }
 
-    public void step() {
+    public void step() throws DeadWorldException {
         boolean[][] newWorld = deepCopy();
         for (int x = 0; x < cells.length; x++) {
             for (int y = 0; y < cells[x].length; y++) {
@@ -49,6 +51,7 @@ public class World {
                 newWorld[x][y] = isCellAlive(numberOfLiveNeighbour,isCurrentCellAlive);
             }
         }
+        if (Arrays.deepEquals(cells, newWorld)) {throw new DeadWorldException();}
         updateWorld(newWorld);
     }
 
@@ -91,6 +94,8 @@ public class World {
     }
 
     public void print() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         System.out.println(this.toString());
     }
 

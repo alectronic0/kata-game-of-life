@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Application {
 
-    public static void main(String... args) throws InterruptedException {
+    public static void main(String... args) throws InterruptedException, DeadWorldException {
         World app = new World();
 
         while (true) {
