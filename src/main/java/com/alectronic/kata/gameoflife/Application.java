@@ -1,5 +1,7 @@
 package com.alectronic.kata.gameoflife;
 
+import com.alectronic.kata.gameoflife.exception.DeadWorldException;
+
 import java.util.concurrent.TimeUnit;
 
 public class Application {

@@ -1,5 +1,7 @@
 package com.alectronic.kata.gameoflife;
 
+import com.alectronic.kata.gameoflife.exception.DeadWorldException;
+import com.alectronic.kata.gameoflife.utils.GameOfLifeUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -26,7 +28,7 @@ public class WorldIntergationTest {
                 {false, false, false}
         };
 
-        assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);}
+        assertArrayEquals("Expect:\n" + GameOfLifeUtils.toString(expectedWorld),expectedWorld,currentWorld);}
 
     @Test
     public void shouldDieOfUnderPopulation() throws DeadWorldException {
@@ -48,7 +50,7 @@ public class WorldIntergationTest {
                 {false, false, false}
         };
 
-        assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);}
+        assertArrayEquals("Expect:\n" + GameOfLifeUtils.toString(expectedWorld),expectedWorld,currentWorld);}
 
     @Test
     public void shouldCreateLife() throws DeadWorldException {
@@ -70,7 +72,7 @@ public class WorldIntergationTest {
                 {false, false, false}
         };
 
-        assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);
+        assertArrayEquals("Expect:\n" + GameOfLifeUtils.toString(expectedWorld),expectedWorld,currentWorld);
     }
 
     @Test
@@ -93,7 +95,7 @@ public class WorldIntergationTest {
                 {false, false, false}
         };
 
-        assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);
+        assertArrayEquals("Expect:\n" + GameOfLifeUtils.toString(expectedWorld),expectedWorld,currentWorld);
     }
 
     @Test
@@ -116,7 +118,7 @@ public class WorldIntergationTest {
                 {false, false, false}
         };
 
-        assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);
+        assertArrayEquals("Expect:\n" + GameOfLifeUtils.toString(expectedWorld),expectedWorld,currentWorld);
     }
 
 
@@ -140,7 +142,7 @@ public class WorldIntergationTest {
                 {false, true, false}
         };
 
-        assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);
+        assertArrayEquals("Expect:\n" + GameOfLifeUtils.toString(expectedWorld),expectedWorld,currentWorld);
     }
 
     @Test
@@ -163,6 +165,6 @@ public class WorldIntergationTest {
                 {true, false, true}
         };
 
-        assertArrayEquals("Expect:\n" + World.toString(expectedWorld),expectedWorld,currentWorld);
+        assertArrayEquals("Expect:\n" + GameOfLifeUtils.toString(expectedWorld),expectedWorld,currentWorld);
     }
 }
