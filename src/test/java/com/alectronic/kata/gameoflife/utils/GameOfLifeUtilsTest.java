@@ -6,45 +6,6 @@ import static com.alectronic.kata.gameoflife.utils.GameOfLifeUtils.*;
 import static org.junit.Assert.*;
 
 public class GameOfLifeUtilsTest {
-    //    Testing Game of Life Rules;
-    @Test
-    public void anyLiveCellWithMoreThanThreeLiveNeighboursDiesAsIfByOvercrowding() {
-        assertFalse(isCellAlive(4, true));
-        assertFalse(isCellAlive(5, true));
-        assertFalse(isCellAlive(6, true));
-        assertFalse(isCellAlive(7, true));
-        assertFalse(isCellAlive(8, true));
-    }
-
-    @Test
-    public void anyLiveCellWithTwoOrThreeLiveNeighboursLivesOnToTheNextGeneration() {
-        assertTrue(isCellAlive(2, true));
-        assertTrue(isCellAlive(3, true));
-    }
-
-    @Test
-    public void anyDeadCellWithExactlyThreeLiveNeighboursBecomesALiveCell() {
-        assertTrue(isCellAlive(3, false));
-    }
-
-    @Test
-    public void AnyLiveCellWithFewerThanTwoLiveNeighboursDiesAsIfCausedByUnderpopulation() {
-        assertFalse(isCellAlive(0,true));
-        assertFalse(isCellAlive(1,true));
-    }
-
-    @Test
-    public void noMatchingState() {
-        assertFalse(isCellAlive(0,false));
-        assertFalse(isCellAlive(1,false));
-        assertFalse(isCellAlive(2,false));
-        assertFalse(isCellAlive(4,false));
-        assertFalse(isCellAlive(5,false));
-        assertFalse(isCellAlive(6,false));
-        assertFalse(isCellAlive(7,false));
-        assertFalse(isCellAlive(8,false));
-    }
-
 //    Counting Neighbours Check
 //    * * .
 //    * * .
