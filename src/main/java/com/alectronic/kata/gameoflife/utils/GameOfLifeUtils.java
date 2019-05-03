@@ -64,11 +64,6 @@ public class GameOfLifeUtils {
         return s.toString();
     }
 
-
-    public String getResouceFilePath(String fileName) {
-        return Objects.requireNonNull(this.getClass().getClassLoader().getResource(fileName)).getFile();
-    }
-
     public static boolean[][] getStateFromFile(String arg) throws IOException, MalformedLine {
         return GameOfLifeUtils.convertStringToWorld(new String(Files.readAllBytes(Paths.get(arg))).split("\n"));
     }
@@ -85,7 +80,7 @@ public class GameOfLifeUtils {
         return booleanList;
     }
 
-    public static boolean[] convertStringToWorld(String alive, String dead, String line) throws MalformedLine {
+    private static boolean[] convertStringToWorld(String alive, String dead, String line) throws MalformedLine {
         String[] x = line.split("");
         boolean[] booleanList = new boolean[x.length];
         for (int i = 0; i < x.length; i++){
